@@ -1,0 +1,24 @@
+{
+  "name": "@starter-project/backend",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "lfdiaz <your_email_address@example.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/backend.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "startDev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "@types/node": "^13.7.4",
+    "typescript": "^3.8.2"
+  },
+  "scripts": {
+    "startDev": "lerna run startDev --stream"
+  }
+}
