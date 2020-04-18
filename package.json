@@ -5,8 +5,12 @@
     "lerna": "^3.20.2",
     "prettier": "^1.19.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  },
   "scripts": {
-    "startDev": "lerna run startDev --stream"
+    "client": "cd packages/ui && npm run startDev",
+    "server": "cd packages/backend && npm run startDev",
+    "startDev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   }
 }
