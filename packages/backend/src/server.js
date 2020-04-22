@@ -3,16 +3,22 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
 app.use(express.json());
-const path = require("path");
 
 const PORT = process.env.PORT;
 const DATABASE_URL = process.env.DATABASE_URL;
 
-mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
+mongoose.connect(DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 const db = mongoose.connection;
-db.on("error", error => console.log(`Database error: ${error}`));
-db.once("open", () => console.log("connected to database"));
+db.on("error", error => console.log(`Database Error: ${error}`));
+db.once("open", () => console.log("Connected to the Database"));
 
-// app.use(express.static(path.join(__dirname, "../../ui/public")));
+const signupRoute = require("./routes/signup");
+app.use("/api/signup", signupRoute);
 
-app.listen(PORT, () => console.log(`server running on port ${PORT}`));
+const loginRoute = require("./routes/login");
+app.use("/api/login", loginRoute);
+
+app.listen(PORT, () => console.log(`Server Started on port ${PORT}`));

@@ -72,7 +72,7 @@ const Signup = () => {
           name="name"
           onChange={onChange}
           fullWidth={true}
-          error={error}
+          // error={error}
         />
         <TextField
           type="text"
@@ -80,7 +80,7 @@ const Signup = () => {
           name="username"
           onChange={onChange}
           fullWidth={true}
-          error={error}
+          // error={error}
         />
         <TextField
           type="text"
@@ -88,7 +88,7 @@ const Signup = () => {
           name="password"
           onChange={onChange}
           fullWidth={true}
-          error={error}
+          error={error && error.includes("Password")}
         />
         <TextField
           type="text"
@@ -96,7 +96,7 @@ const Signup = () => {
           name="password1"
           onChange={onChange}
           fullWidth={true}
-          error={error}
+          error={error && error.includes("Password")}
         />
         <Button onClick={onSignupClick}>
           <Typography variant="subtitle1">Signup</Typography>

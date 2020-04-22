@@ -36,9 +36,9 @@ const Login = () => {
   const [error, setError] = useState(null);
 
   const onLoginClick = () => {
-    const { username, password } = items;
+    const { email, password } = items;
     const response = axios.post("/api/login", {
-      username,
+      email,
       password
     });
     setError(response.statusText !== "OK");
@@ -58,13 +58,13 @@ const Login = () => {
       <div className={classes.modal}>
         {error && (
           <Typography variant="subtitle1" color="error">
-            The password and/or username is incorrect
+            The password and/or email is incorrect
           </Typography>
         )}
         <TextField
           type="text"
-          label="Username"
-          name="username"
+          label="Email"
+          name="email"
           onChange={onChange}
           fullWidth={true}
           error={error}
