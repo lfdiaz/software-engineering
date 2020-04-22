@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
 import "./App.css";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
           <Switch>
             <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/login" exact>
+              <Login />
             </Route>
           </Switch>
         </Router>

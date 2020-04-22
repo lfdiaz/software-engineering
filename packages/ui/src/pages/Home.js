@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles, useTheme, createStyles } from "@material-ui/core/styles";
 import { Typography, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -46,9 +47,11 @@ const Home = props => {
             </Typography>
           </Button>
           <Button variant="outlined">
-            <Typography variant="subtitle1" color="textSecondary">
-              Login
-            </Typography>
+            <Link to="/login">
+              <Typography variant="subtitle1" color="textSecondary">
+                Login
+              </Typography>
+            </Link>
           </Button>
         </div>
       </div>
