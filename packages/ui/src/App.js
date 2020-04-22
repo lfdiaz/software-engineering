@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
 import "./App.css";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
             </Route>
             <Route path="/login" exact>
               <Login />
+            </Route>
+            <Route path="/signup" exact>
+              <Signup />
             </Route>
           </Switch>
         </Router>

@@ -20,7 +20,11 @@ const useStyles = makeStyles(theme =>
       minWidth: "250px",
       minHeight: "250px",
       padding: "25px",
-      backgroundColor: theme.palette.background.paper
+      backgroundColor: theme.palette.background.paper,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "space-evenly"
     },
     buttonsContainer: {
       display: "flex",
