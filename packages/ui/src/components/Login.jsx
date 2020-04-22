@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles, useTheme, createStyles } from "@material-ui/core/styles";
-import { Input, TextField, Button, Typography } from "@material-ui/core";
+import { TextField, Button, Typography } from "@material-ui/core";
 import axios from "axios";
 
 const useStyles = makeStyles(theme =>
@@ -31,7 +32,7 @@ const useStyles = makeStyles(theme =>
 
 const Login = () => {
   const theme = useTheme();
-
+  const history = useHistory();
   const [items, setItems] = useState({});
   const [error, setError] = useState(null);
 
@@ -41,7 +42,11 @@ const Login = () => {
       email,
       password
     });
-    setError(response.statusText !== "OK");
+    if (response.statusText === "OK") {
+      history.push("/products");
+    } else {
+      setError(response.statusText !== "OK");
+    }
   };
 
   const onChange = e => {

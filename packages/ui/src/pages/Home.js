@@ -29,7 +29,8 @@ const useStyles = makeStyles(theme =>
     buttonsContainer: {
       display: "flex",
       alignItems: "center",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
+      width: "80%"
     }
   })
 );
@@ -45,18 +46,20 @@ const Home = props => {
           Welcome
         </Typography>
         <div className={classes.buttonsContainer}>
-          <Button variant="outlined">
-            <Typography variant="subtitle1" color="textSecondary">
-              Guest
-            </Typography>
-          </Button>
-          <Button variant="outlined">
-            <Link to="/login">
+          <Link to="/products">
+            <Button variant="outlined">
+              <Typography variant="subtitle1" color="textSecondary">
+                Guest
+              </Typography>
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button variant="outlined">
               <Typography variant="subtitle1" color="textSecondary">
                 Login
               </Typography>
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
