@@ -21,4 +21,7 @@ app.use("/api/signup", signupRoute);
 const loginRoute = require("./routes/login");
 app.use("/api/login", loginRoute);
 
-app.listen(PORT, () => console.log(`Server Started on port ${PORT}`));
+const addToCartRoute = require('./routes/add_to_cart')
+app.use('/api/cart', addToCartRoute)
+
+app.listen(PORT, () => console.log(`Server Started on Port ` + PORT));

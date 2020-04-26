@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   try {
     //If password from database matches then login is successful
     if (req.body.password == user.password) {
-      res.json("Successful Login");
+      res.json(user._id);
     } else {
       res.json("Failed Login");
     }
