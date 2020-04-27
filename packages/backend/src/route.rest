@@ -8,10 +8,12 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/login
+POST http://localhost:3000/api/products
 Content-Type: application/json
 
 {
-    "email": "test3@gmail.com",
-    "password": "12345"
+    "name": "Pepperoni Pizza",
+    "description": "Pepperoni Pizza",
+    "price": 24,
+    "quantity": 4
 }

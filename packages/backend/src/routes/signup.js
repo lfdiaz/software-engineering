@@ -17,7 +17,7 @@ router.post(
 
         try {
           const newUser = await user.save();
-          res.json(/*newUser*/ { message: "New user created" });
+          res.json(newUser);
         } catch (err) {
           res.status(400).json({ message: err.message });
         }

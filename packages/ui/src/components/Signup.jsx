@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles, useTheme, createStyles } from "@material-ui/core/styles";
 import { TextField, Button, Typography } from "@material-ui/core";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -32,6 +33,7 @@ const useStyles = makeStyles(theme =>
 const Signup = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
+  const history = useHistory();
 
   const [items, setItems] = useState({});
   const [error, setError] = useState(null);
@@ -43,15 +45,20 @@ const Signup = () => {
     setError(false);
   };
 
-  const onSignupClick = () => {
+  const onSignupClick = async () => {
     const { password, password1 } = items;
     if (password !== password1) {
       setError("Passwords do not match");
       return;
     }
-    const response = axios.post("/api/signup", {
+    const response = await axios.post("/api/signup", {
       ...items
     });
+
+    if (response.statusText === "OK") {
+      localStorage.setItem("userId", response.data._id);
+      history.push("/products");
+    }
     setError(response.statusText);
   };
 
@@ -76,8 +83,8 @@ const Signup = () => {
         />
         <TextField
           type="text"
-          label="Username"
-          name="username"
+          label="Email"
+          name="email"
           onChange={onChange}
           fullWidth={true}
           // error={error}
