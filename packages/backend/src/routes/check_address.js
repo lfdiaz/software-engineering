@@ -5,7 +5,7 @@ const usps = new USPS({
   properCase: true
 });
 
-export const checkAddress = async (street, city, state, zipcode) => {
+const checkAddress = async (street, city, state, zipcode) => {
   const verifiedAddress = await usps.verify({
     street1: street,
     // street2: '',//should be apt #
@@ -15,3 +15,5 @@ export const checkAddress = async (street, city, state, zipcode) => {
   });
   return verifiedAddress;
 };
+
+console.log(checkAddress("707 Soulnier St", "Houston", "TX", "77019"));
